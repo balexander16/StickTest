@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset version="1.2" tiledversion="1.2.4" name="bit" tilewidth="32" tileheight="32" tilecount="6633" columns="99">
+ <image source="bit.bmp" width="3176" height="2170"/>
+ <terraintypes>
+  <terrain name="New Terrain" tile="1895"/>
+  <terrain name="New Terrain" tile="1895"/>
+  <terrain name="New Terrain" tile="1895"/>
+ </terraintypes>
+</tileset>
