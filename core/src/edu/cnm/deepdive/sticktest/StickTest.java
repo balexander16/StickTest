@@ -15,6 +15,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
 public class StickTest extends ApplicationAdapter {
+
 	private static final float SCALE = 2.0f;
 	public static final float PIXEL_PER_METER = 32f;
 	private static final float TIME_STEP = 1 / 60f;
@@ -31,6 +32,7 @@ public class StickTest extends ApplicationAdapter {
 	private Texture texture;
 	private OrthogonalTiledMapRenderer tiledMapRenderer;
 	private TiledMap tiledMap;
+
 	@Override
 	public void create() {
 		orthographicCamera = new OrthographicCamera();
@@ -45,6 +47,7 @@ public class StickTest extends ApplicationAdapter {
 		player = new Player(world);
 		world.setContactListener(new WorldContactListener());
 	}
+
 	@Override
 	public void render() {
 		update();
@@ -52,8 +55,10 @@ public class StickTest extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		tiledMapRenderer.render();
 		batch.begin();
+		// All drawing goes in here! Will have to add in the crap here. The texture comes first, then x and y coordinates, then width then height.
+
 		batch.draw(texture, player.getBody().getPosition().x * PIXEL_PER_METER - (texture.getWidth() / 2),
-				player.getBody().getPosition().y * PIXEL_PER_METER - (texture.getHeight() / 2));
+				player.getBody().getPosition().y * PIXEL_PER_METER - (texture.getHeight() / 2), 65f, 200f);
 		batch.end();
 	}
 
@@ -66,6 +71,7 @@ public class StickTest extends ApplicationAdapter {
 		tiledMapRenderer.setView(orthographicCamera);
 		batch.setProjectionMatrix(orthographicCamera.combined);
 	}
+
 	private void cameraUpdate() {
 		Vector3 position = orthographicCamera.position;
 		position.x = player.getBody().getPosition().x * PIXEL_PER_METER;
@@ -73,10 +79,12 @@ public class StickTest extends ApplicationAdapter {
 		orthographicCamera.position.set(position);
 		orthographicCamera.update();
 	}
+
 	@Override
 	public void resize(int width, int height) {
 		orthographicCamera.setToOrtho(false, width / SCALE, height / SCALE);
 	}
+
 	@Override
 	public void dispose() {
 		texture.dispose();

@@ -9,8 +9,8 @@ import com.badlogic.gdx.physics.box2d.World;
 public class Player {
   private static final int BOX_SIZE = 32;
   private static final float PLAYER_DENSITY = 1.0f;
-  public static final float JUMP_FORCE = 250f;
-  public static final float RUN_FORCE = 5f;
+  public static final float JUMP_FORCE = 1000f;
+  public static final float RUN_FORCE = 25f;
   public static final String PLAYER_IMG_PATH = "stickman.png";
   private static final float PLAYER_START_X = 8f;
   private static final float PLAYER_START_Y = 18f;

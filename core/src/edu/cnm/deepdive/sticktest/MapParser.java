@@ -13,6 +13,7 @@ public class MapParser {
   private static final String MAP_LAYER_NAME_GROUND = "ground";
   private static final String MAP_LAYER_NAME_BOUNDS = "bounds";
   private static final String MAP_LAYER_NAME_DANGERS = "dangers";
+
   public static void parseMapLayers(World world, TiledMap tiledMap) {
     for (MapLayer layer : tiledMap.getLayers()) {
       for (MapObject object : layer.getObjects()) {
@@ -26,7 +27,7 @@ public class MapParser {
           new Ground(world, shape);
         if (layer.getName().equals(MAP_LAYER_NAME_BOUNDS))
           new Bounds(world, shape);
-        if (layer.getName().equals(MAP_LAYER_NAME_DANGERS))
+        if (layer.getName().equalsIgnoreCase(MAP_LAYER_NAME_DANGERS))
           new DangerZone(world, shape);
       }
     }
